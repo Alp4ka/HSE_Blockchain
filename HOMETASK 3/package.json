@@ -1,0 +1,14 @@
+{
+  "name": "HOMEWORK 3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "web3": "^1.8.0"
+  }
+}
