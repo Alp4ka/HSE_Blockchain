@@ -39,10 +39,8 @@ describe("RockPaperScissors", function(){
         it("Register second player!", async function () {
             const rps = await loadFixture(rpsContract);
             const {firstPlayer, secondPlayer} = await loadFixture(getPlayers);
-
             await rps.connect(firstPlayer).register();
             await rps.connect(secondPlayer).register();
-
             expect(await rps.firstPlayer()).is.eq(firstPlayer.address);
             expect(await rps.secondPlayer()).is.eq(secondPlayer.address);
         })
@@ -58,10 +56,8 @@ describe("RockPaperScissors", function(){
         it("Register with caller!", async function () {
             const rps = await loadFixture(rpsContract);
             const rpsCaller = await loadFixture(rpsCallerContract);
-            
             await rpsCaller.setAddress(rps.address);
             await rpsCaller.register();
-
             expect(await rps.firstPlayer()).is.eq(rpsCaller.address);
         })
     })
