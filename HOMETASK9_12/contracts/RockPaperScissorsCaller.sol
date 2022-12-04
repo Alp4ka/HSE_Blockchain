@@ -17,8 +17,6 @@ abstract contract RockPaperScissorsInterface {
 
     function register() external virtual returns (uint);
 
-    function move(bytes32 move) external virtual returns (bool);
-
     function reveal(Move element, uint32 salt) external virtual returns (address);
 
     function restart() external virtual;
@@ -47,17 +45,12 @@ contract RockPaperScissorsCaller {
         return rpsinterface.register();
     }
 
-    function commitMove(bytes32 move) public addressSet returns (bool) {
-        return rpsinterface.commitMove(move);
-    }
-
-
     function reveal(RockPaperScissorsInterface.Move element, uint32 salt) public addressSet returns (address) {
         return rpsinterface.reveal(element, salt);
     }
 
 
-    function reset() public addressSet {
+    function restart() public addressSet {
         return rpsinterface.reset();
     }
 }
